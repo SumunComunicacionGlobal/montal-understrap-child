@@ -124,6 +124,7 @@ function understrap_add_site_info() {
 
 }
 
+
 add_action( 'wp_body_open', 'top_anchor');
 function top_anchor() {
     echo '<div id="top"></div>';
