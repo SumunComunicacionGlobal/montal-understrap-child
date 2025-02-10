@@ -1,0 +1,37 @@
+.hfeed  article,
+.hfeed-post {
+
+	.wp-post-image {
+		margin-bottom: $spacer;
+	}
+
+	> .card {
+		height: 100%;
+		position: relative;
+
+		.entry-content {
+			margin-bottom: $spacer * 3;
+		}
+
+		.read-more-text {
+			position: absolute;
+			bottom: $card-cap-padding-y;
+			right: $card-cap-padding-x;
+
+			> .btn {
+				padding-right: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+
+}
+
+.post-navigation {
+	margin-top: $spacer * 2;
+
+	.nav-links {
+		font-weight: $font-weight-bold;
+	}
+
+}

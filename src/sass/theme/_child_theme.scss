@@ -1,0 +1,133 @@
+#search-wrapper,
+#error-404-wrapper {
+    padding-top: 10rem;
+
+    .page-header {
+        margin-bottom: $spacer * 2;
+    }
+}
+
+#no-title-page-wrapper,
+#woocommerce-wrapper {
+  padding-top: 0;
+}
+
+#narrow-width-page-wrapper {
+
+  .entry-title {
+    text-align: center;
+  }
+
+  .entry-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .wp-block-heading {
+    margin-top: 2em;
+  }
+
+}
+
+body.home #no-title-page-wrapper {
+  padding-bottom: 0;
+}
+
+#wrapper-top-bar {
+  padding: .3rem 0;
+  font-size: $font-size-sm;
+  background-color: $light;
+  border-bottom: 1px solid $border-color;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .global-links .wp-block-buttons .wp-block-button .wp-block-button__link {
+    padding: 0;
+    background-color: transparent !important;
+    border: 0;
+    margin: 0 $spacer*.25;
+    text-transform: none;
+
+    .btn-arrow {
+      display: none;
+    }
+  }
+}
+
+:root :where(p.has-background) {
+  padding: $spacer * 2;
+}
+
+body.navbar-transparent {
+
+  #wrapper-navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+
+    + .wrapper {
+      padding-top: 0;
+    }
+  }
+
+}
+
+body.scrolled {
+
+  #wrapper-navbar {
+    box-shadow: $box-shadow-sm;
+  }
+
+}
+
+.stretch-linked-block {
+    position: relative !important;
+    transition: $transition-fade;
+
+    .editorskit-block-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 90;
+    }
+
+    &:hover {
+        opacity: .7;
+
+        .wp-block-button.is-style-arrow-link .wp-block-button__link:after {
+            right: 0;
+        }
+    }
+}
+
+.stretched-link {
+    // color: $body-color;
+
+    &:hover {
+        text-decoration: none;
+        // color: $body-color;
+    }
+
+}
+
+.entry-footer {
+    position: relative;
+    z-index: 2;
+}
+
+.card-body {
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  
+}
+
+#accordion-infografia {
+  --#{$prefix}accordion-bg: transparent;
+}
