@@ -563,7 +563,7 @@ function smn_todos_los_menus_y_cartas() {
 	$r = '';
 	$r .= '<p class="h3">'. __( 'Todos nuestros menús y cartas', 'smn' ) .'</p>';
 
-	$r .= '<p class="h4">'. __( 'Menús del Restaurante', 'smn' ) .'</p>';
+	$r .= '<p class="h4" id="menus-restaurante">'. __( 'Menús del Restaurante', 'smn' ) .'</p>';
 	
 	ob_start();
 	get_template_part( 'global-templates/menus-montal', 'acf' );
@@ -579,13 +579,14 @@ function smn_todos_los_menus_y_cartas() {
 
 		$parts = explode( '|', $carta );
 
+		$slug = sanitize_title( $parts[0] );
+		$slug = str_replace( '-', '_', $slug );
+		$name = $parts[1];
+
 		if ( count( $parts ) == 1 ) {
-			$r .= '<p class="h4 my-2 mt-3">'. $parts[0] .'</p>';
+			$r .= '<p class="h4 my-2 mt-3" id="menus-'.$slug.'">'. $parts[0] .'</p>';
 		} else {
 
-			$slug = sanitize_title( $parts[0] );
-			$slug = str_replace( '-', '_', $slug );
-			$name = $parts[1];
 
 			$url = get_field( 'carta_pdf_' . $slug, 'option' );
 			// $url = wp_get_attachment_url( $pdf_id );
