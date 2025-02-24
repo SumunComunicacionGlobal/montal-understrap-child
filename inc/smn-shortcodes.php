@@ -584,7 +584,7 @@ function smn_todos_los_menus_y_cartas() {
 		$name = $parts[1];
 
 		if ( count( $parts ) == 1 ) {
-			$r .= '<p class="h4 my-2 mt-3" id="menus-'.$slug.'">'. $parts[0] .'</p>';
+			$r .= '<p class="h4 pt-5 mb-2" id="menus-'.$slug.'">'. $parts[0] .'</p>';
 		} else {
 
 
