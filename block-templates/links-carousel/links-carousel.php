@@ -38,6 +38,8 @@ if ( ! empty( $block['textColor'] ) ) {
 
 if ( have_rows( 'links' ) ) : 
 
+	$hidden_product_cats = get_field( 'hidden_product_cats', 'options' );
+
 	$col_classes = 'col-12 col-md-6 col-lg-4';
 	// get count of links
 	$count = count( get_field( 'links' ) );
@@ -81,7 +83,11 @@ if ( have_rows( 'links' ) ) :
 						if ( $link_post_id ) {
 							$link_url = get_the_permalink( $link_post_id );
 						} elseif ( $link_term_id ) {
-							$link_url = get_term_link( $link_term_id );
+							if ( in_array( $link_term_id, $hidden_product_cats ) ) {
+								continue;
+							} else {
+								$link_url = get_term_link( $link_term_id );
+							}
 						}
 					}
 

@@ -271,6 +271,10 @@ function custom_woocommerce_product_subcategories_args( $args ) {
             ) );
 
             $related_terms = array_merge( $child_categories, $related_terms );
+            $hidden_cats = get_field('hidden_product_cats', 'option'); // Assuming it's an ACF option field
+            if ( $hidden_cats && is_array($hidden_cats) ) {
+                $related_terms = array_diff( $related_terms, $hidden_cats );
+            }
             $args['include'] = $related_terms;
             $args['orderby'] = 'include';
 
@@ -278,4 +282,15 @@ function custom_woocommerce_product_subcategories_args( $args ) {
     }
 
 	return $args;
+}
+
+add_filter('woocommerce_product_subcategories_args', 'smn_hide_specific_product_cats');
+function smn_hide_specific_product_cats($args) {
+    if (is_shop() || is_tax('product_cat')) {
+        $hidden_cats = get_field('hidden_product_cats', 'option'); // Assuming it's an ACF option field
+        if ($hidden_cats && is_array($hidden_cats)) {
+            $args['exclude'] = $hidden_cats;
+        }
+    }
+    return $args;
 }
