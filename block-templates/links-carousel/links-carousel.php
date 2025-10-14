@@ -83,7 +83,7 @@ if ( have_rows( 'links' ) ) :
 						if ( $link_post_id ) {
 							$link_url = get_the_permalink( $link_post_id );
 						} elseif ( $link_term_id ) {
-							if ( in_array( $link_term_id, $hidden_product_cats ) ) {
+							if ( $hidden_product_cats && in_array( $link_term_id, $hidden_product_cats ) ) {
 								continue;
 							} else {
 								$link_url = get_term_link( $link_term_id );
