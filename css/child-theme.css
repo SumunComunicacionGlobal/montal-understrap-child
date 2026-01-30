@@ -16417,7 +16417,7 @@ body.tax-product_cat .woocommerce-products-header .wp-block-media-text__content 
 }
 
 .card-img-top img {
-  height: 256px;
+  aspect-ratio: 1.65;
   -o-object-fit: cover;
   object-fit: cover;
 }

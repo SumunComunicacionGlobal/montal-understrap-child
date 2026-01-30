@@ -48,7 +48,8 @@ a {
 }
 
 .card-img-top img {
-	height: 256px;
+	// height: 256px;
+	aspect-ratio: 1.65;
 	object-fit: cover;
 }
 
