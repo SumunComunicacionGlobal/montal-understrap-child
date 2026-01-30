@@ -28,35 +28,29 @@ if ( is_singular() ) {
 }
 ?>
 
-<header class="wp-block-cover alignfull is-style-image-header">
+<header class="single-header container mt-3">
 
-	<span aria-hidden="true" class="wp-block-cover__background has-background-dim has-background-dim-80"></span>
+	<?php if ( $image_id ) echo wp_get_attachment_image( $image_id, 'large', false, array('class' => 'mb-2') ); ?>
 
-	<?php if ( $image_id ) echo wp_get_attachment_image( $image_id, 'large', false, array('class' => 'wp-block-cover__image-background') ); ?>
+	<?php smn_breadcrumb(); ?>
 
-	<div class="wp-block-cover__inner-container container">
+	<h1 class="entry-title"><?php echo $title; ?></h1>
 
-		<?php smn_breadcrumb(); ?>
+	<?php if ( is_singular( 'post' ) ) { ?>
 
-		<h1 class="entry-title"><?php echo $title; ?></h1>
+		<div class="entry-meta">
 
-		<?php if ( is_singular( 'post' ) ) { ?>
+			<?php understrap_posted_on(); ?>
 
-			<div class="entry-meta text-white">
+		</div><!-- .entry-meta -->
 
-				<?php understrap_posted_on(); ?>
+	<?php } ?>
 
-			</div><!-- .entry-meta -->
-
-		<?php } ?>
-
-		<?php if ( $description) { ?>
-			
-			<div class="lead"><?php echo $description; ?></div>
+	<?php if ( $description) { ?>
 		
-		<?php } ?>
-
-	</div>
+		<div class="lead"><?php echo $description; ?></div>
+	
+	<?php } ?>
 
 </header>
 
